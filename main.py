@@ -1,4 +1,4 @@
-import instaloader
+import instaloader, os
 from pytubefix import YouTube # https://www.youtube.com/watch?v=dQw4w9WgXcQ
 from pytubefix.cli import on_progress, Playlist
 
@@ -20,19 +20,19 @@ def escolha_pytube():
         if playlist:
             for video in pl.videos:
                 stream = video.streams.get_highest_resolution()
-                stream.download(output_path=f"downloads loader\pytube\Playlist {pl.title} video")
+                stream.download(output_path=f"Downloads PyLoader\YouTube\Playlist '{pl.title}' video")
         else:
             stream = yt.streams.get_highest_resolution()
-            stream.download(output_path="downloads loader\pytube\Audios")
+            stream.download(output_path="Downloads PyLoader\YouTube\Audios")
 
     elif escolha == 2:
         if playlist:
             for video in pl.videos:
                 stream = video.streams.get_audio_only()
-                stream.download(output_path=f"downloads loader\pytube\Playlist {pl.title} audio")
+                stream.download(output_path=f"Downloads PyLoader\YouTube\Playlist '{pl.title}' audio")
         else:
             stream = yt.streams.get_audio_only()
-            stream.download(output_path="downloads loader\pytube\Videos")
+            stream.download(output_path="Downloads PyLoader\YouTube\Videos")
 
 
 def escolha_ig():
@@ -40,7 +40,7 @@ def escolha_ig():
 
     post = instaloader.Post.from_shortcode(L.context, shortcode)
     print("...")
-    L.download_post(post, target="downloads loader\Instaloader")
+    L.download_post(post, target="Downloads PyLoader\Instagram")
     print("Download concluido.")
 
 def baixar():
@@ -51,8 +51,8 @@ def baixar():
     if substring_yt_pl in url:
         playlist = True
         pl = Playlist(url)
-        escolha_pytube()
         print(f"Titulo da playlist: {pl.title}")
+        escolha_pytube()
         print("Download concluido.")
 
     elif substring_ig in url:
@@ -60,8 +60,8 @@ def baixar():
 
     else:
         yt = YouTube(url, on_progress_callback = on_progress)
-        escolha_pytube()
         print(f"Titulo do video: {yt.title}")
+        escolha_pytube()
         print("Download concluido.")
 
     novamente = input("Deseja baixar novamente? s/n ")
@@ -69,4 +69,5 @@ def baixar():
         exit
     else:
         baixar()
+os.system('cls')
 baixar()
