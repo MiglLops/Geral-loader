@@ -3,7 +3,9 @@ Requer download da biblioteca PYTUBEFIX e INSTALOADER
 Instagram ✅
 
   Storys ❌ (por enquanto...)
+  
   Reels ✅
+  
   posts ✅
 
 
