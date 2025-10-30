@@ -1,5 +1,5 @@
 import instaloader, os
-from pytubefix import YouTube # https://www.youtube.com/watch?v=dQw4w9WgXcQ  # https://youtu.be/iCjDm-mMsg0?si=9no--E9rvHDlO8i4 # https://youtu.be/6ejPgJ4kTDA?si=x5Qn-832hWyd3V2-
+from pytubefix import YouTube # https://www.youtube.com/watch?v=dQw4w9WgXcQ
 from pytubefix.cli import on_progress, Playlist
 
 L = instaloader.Instaloader(
