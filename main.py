@@ -63,11 +63,9 @@ def escolha_pytube():
 
 def escolha_ig():
     shortcode = url.split("/")[-2]
-
     post = instaloader.Post.from_shortcode(L.context, shortcode)
     print("...")
     L.download_post(post, target="Downloads PyLoader\Instagram")
-
 
 def baixar():
     global url, pl, yt, playlist
@@ -94,7 +92,6 @@ def baixar():
         exit
     else:
         baixar()
-
 
 os.system('cls')
 baixar()
