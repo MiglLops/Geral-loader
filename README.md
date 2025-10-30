@@ -1,4 +1,6 @@
 Requer download da biblioteca PYTUBEFIX e INSTALOADER
+          ou
+Rode o MAIN.PY 
 
 Instagram ✅
 
