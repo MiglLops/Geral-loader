@@ -1,6 +1,6 @@
-Requer download da biblioteca PYTUBEFIX e INSTALOADER
-          ou
-Rode o MAIN.PY 
+Requer download da biblioteca PYTUBEFIX e INSTALOADER ou Rode o MAIN.PY 
+
+Agora é possivel criar playlists virtuais!!!
 
 Instagram +/-
 
