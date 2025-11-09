@@ -1,4 +1,4 @@
-Requer download da biblioteca PYTUBEFIX e INSTALOADER ou Rode o MAIN.PY 
+Requer download da biblioteca PYTUBEFIX e INSTALOADER ou execute o MAIN.PY 
 Agora é possivel criar playlists virtuais!!!
 
 Instruções de uso:
