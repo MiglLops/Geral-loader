@@ -2,6 +2,7 @@ Requer download da biblioteca PYTUBEFIX e INSTALOADER ou Rode o MAIN.PY
 Agora é possivel criar playlists virtuais!!!
 
 Instruções de uso:
+
 1- Ao abrir o programa pela primeira vez, digite o diretorio completo para onde os downloads devem ficar. (ex:'C:\PyLoader');
 
 2- Execute o programa na mesma pasta que o diretorio para não ocorrer problemas;
