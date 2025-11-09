@@ -3,6 +3,7 @@ from pytubefix import YouTube # https://www.youtube.com/watch?v=dQw4w9WgXcQ
 from pytubefix.cli import on_progress, Playlist
 
 playlist = False
+
 L = instaloader.Instaloader(
     download_comments=False,
     save_metadata=False,
@@ -10,6 +11,29 @@ L = instaloader.Instaloader(
     post_metadata_txt_pattern="",
     download_video_thumbnails=False
 )
+
+def local_downloads():
+    global local, local_salvo
+    try:
+        if local == True:
+            print(local_salvo)
+            pass
+        else:
+            print("erro")
+
+    except:
+        local = input("Digite o local de destino dos downloads: ")
+
+        with open(__file__, "r", encoding="utf-8") as f:
+            conteudo = f.readlines()
+
+        nova_linha = f'local_salvo = r"{local}"\n'
+        conteudo.insert(0, nova_linha)
+        conteudo.insert(1, "local = True\n")
+
+        with open(__file__, "w", encoding="utf-8") as f:
+            f.writelines(conteudo)
+
 
 def escolha_pytube():
     global yt, url_2, url_instagram_lista, vim_pelo_ig
@@ -20,28 +44,27 @@ def escolha_pytube():
         if playlist:
             for video in pl.videos:
                 stream = video.streams.get_highest_resolution()
-                stream.download(output_path=f"Downloads PyLoader\YouTube\Playlist '{pl.title}' video")
+                stream.download(output_path=f"{local_salvo}\YouTube\Playlist '{pl.title}' video")
                 print(f"{video.title} | - ok...")
         else:
             stream = yt.streams.get_highest_resolution()
-            stream.download(output_path="Downloads PyLoader\YouTube\Videos")
+            stream.download(output_path=f"{local_salvo}\YouTube\Videos")
     elif escolha == 2:
         if playlist:
             for video in pl.videos:
                 stream = video.streams.get_audio_only()
-                stream.download(output_path=f"Downloads PyLoader\YouTube\Playlist '{pl.title}' audio")
+                stream.download(output_path=f"{local_salvo}\YouTube\Playlist '{pl.title}' audio")
                 print(f"{video.title} | - ok...")
         else:
             stream = yt.streams.get_audio_only()
-            stream.download(output_path="Downloads PyLoader\YouTube\Audios")
+            stream.download(output_path=f"{local_salvo}\YouTube\Audios")
 
     elif escolha == 3:
         if substring_yt_pl in url:
-            print("Não é possivel criar uma playlist junto com uma playlist.")
+            print("Não é possivel criar uma playlist virtual junto com uma playlist.")
             escolha_pytube()
         else:
             download_na_lista()
-
 
 def download_na_lista():
     global url_instagram_lista, escolha, url_2
@@ -76,7 +99,7 @@ def download_na_lista():
                     print(f"Link {n} ok...")
                 else:
                     stream = yt.streams.get_highest_resolution()
-                    stream.download(output_path="Downloads PyLoader\YouTube\Videos")
+                    stream.download(output_path=f"{local_salvo}\YouTube\Videos")
                     n += 1
                     print(f"Link {n} ok...")
             break
@@ -90,13 +113,12 @@ def download_na_lista():
                         print(f"Link {n} ok...")
                     else:
                         yt_temp = YouTube(link, on_progress_callback=on_progress)
-                        yt_temp.streams.get_audio_only().download(output_path="Downloads PyLoader\YouTube\Audios")
+                        yt_temp.streams.get_audio_only().download(output_path=f"{local_salvo}\YouTube\Audios")
                         n += 1
                         print(f"Link {n} ok...")
                 break
         else:   
             add_lista()
-
 
 def add_lista():
     n_lista = 0
@@ -120,23 +142,23 @@ def escolha_ig(link=None):
                 shortcode = url.split("/")[-2]
             post = instaloader.Post.from_shortcode(L.context, shortcode)
             print("...")
-            L.download_post(post, target="Downloads PyLoader")
+            L.download_post(post, target="Instagram")
         except:
             shortcode = url_instagram_lista.split("/")[-2]
             post = instaloader.Post.from_shortcode(L.context, shortcode)
             print("...")
-            L.download_post(post, target="Downloads PyLoader")
+            L.download_post(post, target="Instagram")
     else:
         vim_pelo_ig = True
         url_2 = url
         lista_download_titulo.append("Instagram video n° 0")
         download_na_lista()
 
-
 def baixar():
     global url, pl, yt, playlist, substring_ig, substring_yt_pl, escolha, lista_download_titulo, lista_download_url
     lista_download_url = []
     lista_download_titulo = []
+    local_downloads()
     url = input("URL >> ")
     substring_yt_pl, substring_ig = "playlist", "instagram"
 
