@@ -1,7 +1,7 @@
 Requer download da biblioteca PYTUBEFIX e INSTALOADER ou execute o MAIN.PY 
 Agora é possivel criar playlists virtuais!!!
 
-Instruções de uso:
+INSTRUÇÕES DE USO:
 
 1- Ao abrir o programa pela primeira vez, digite o diretorio completo para onde os downloads devem ficar. (ex:'C:\PyLoader');
 
@@ -12,7 +12,7 @@ Instruções de uso:
 4- Caso ocorra algum erro na parte de digitar o diretorio, exclua e execute um novo arquivo. (obs: não modifique o codigo, ele pode quebrar);
 
 
-
+COMPATIBILIDADE:
 
 Instagram +/-
 
