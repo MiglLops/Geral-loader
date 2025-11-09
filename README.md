@@ -34,4 +34,4 @@ Youtube ✅
   
   ➔ Alguns albuns originais dos criadores e cursos podem ter problemas para fazer o download
 
-Spotify ❌ (por enquanto...)
+Spotify ❌ (por enquanto)
