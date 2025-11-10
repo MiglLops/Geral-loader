@@ -21,6 +21,10 @@ INSTRUÇÕES DE USO:
 
 4- Caso ocorra algum erro na parte de digitar o diretorio, exclua e execute um novo arquivo. (obs: não modifique o codigo, ele pode quebrar);
 
+5- Os downloads via Instagram ficarão na mesma pasta onde foi executado o codigo, por isso siga a instrução n° 2;
+
+6- Os downloads via Youtube ficarão em uma subpasta no diretorio indicado, criando uma pasta para cada Playlist e tipo de instalação;
+
 
 COMPATIBILIDADE:
 
