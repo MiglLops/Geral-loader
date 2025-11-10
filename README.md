@@ -5,7 +5,7 @@ LEIA AS INSTRUÇÕES ANTES DE USAR
 
 INSTRUÇÕES DE USO:
 
-1- Ao abrir o programa pela primeira vez, digite o diretorio completo para onde os downloads devem ficar. (ex:'C:\PyLoader');
+1- Ao abrir o programa pela primeira vez, digite o diretorio completo para onde os downloads devem ficar. (ex:'C:\PyLoader' sem aspas);
 
 1.1- O programa fechara ao digitar o diretorio, isso significa que deu certo e voce pode executa-lo novamente;
 
