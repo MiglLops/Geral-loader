@@ -1,4 +1,5 @@
-import instaloader, os
+local_salvo = r"D:\PyLoader"
+import instaloader, os, time
 from pytubefix import YouTube # https://www.youtube.com/watch?v=dQw4w9WgXcQ
 from pytubefix.cli import on_progress, Playlist
 
@@ -12,27 +13,39 @@ L = instaloader.Instaloader(
     download_video_thumbnails=False
 )
 
+
+def definir_local():
+    global local_salvo2, conteudo, local
+
+    with open(__file__, "r", encoding="utf-8") as f:
+        conteudo = f.readlines()
+        if remover == True:
+            local_salvo2 = input("Digite o local de destino dos downloads: ")
+            nova_linha = f'local_salvo = r"{local_salvo2}"\n'
+            conteudo[0] = nova_linha
+            with open(__file__, "w", encoding="utf-8") as f:
+                local = True
+                f.writelines(conteudo)
+            
+        else:
+            local_salvo2 = input("Digite o local de destino dos downloads: ")
+            nova_linha = f'local_salvo = r"{local_salvo2}"\n'
+            conteudo.insert(0, nova_linha)
+            with open(__file__, "w", encoding="utf-8") as f:
+                f.writelines(conteudo)
+
+
 def local_downloads():
     global local, local_salvo
     try:
         if local == True:
             print(local_salvo)
-            pass
         else:
-            print("erro")
+            print("a")
+            definir_local()
 
     except:
-        local = input("Digite o local de destino dos downloads: ")
-
-        with open(__file__, "r", encoding="utf-8") as f:
-            conteudo = f.readlines()
-
-        nova_linha = f'local_salvo = r"{local}"\n'
-        conteudo.insert(0, nova_linha)
-        conteudo.insert(1, "local = True\n")
-
-        with open(__file__, "w", encoding="utf-8") as f:
-            f.writelines(conteudo)
+        definir_local()
 
 
 def escolha_pytube():
@@ -155,12 +168,15 @@ def escolha_ig(link=None):
         download_na_lista()
 
 def baixar():
-    global url, pl, yt, playlist, substring_ig, substring_yt_pl, escolha, lista_download_titulo, lista_download_url
+    global url, pl, yt, playlist, substring_ig, substring_yt_pl, escolha, lista_download_titulo, lista_download_url, substring_novo_caminho, local, remover
+    remover = False
+    local = True
     lista_download_url = []
     lista_download_titulo = []
     local_downloads()
+    print("Caso queira mudar o caminho, digite 'caminho'.")
     url = input("URL >> ")
-    substring_yt_pl, substring_ig = "playlist", "instagram"
+    substring_yt_pl, substring_ig, substring_novo_caminho = "playlist", "instagram", "caminho"
 
     if substring_yt_pl in url:
         playlist = True
@@ -175,18 +191,27 @@ def baixar():
         escolha_ig()
         print("Download concluido!")
 
+    elif substring_novo_caminho in url:
+        local = False
+        remover = True
+        local_downloads()
+        exit()
+
     else:
         yt = YouTube(url, on_progress_callback = on_progress)
         print(f"Titulo do video: {yt.title}")
         escolha_pytube()
         print("Download concluido!")
-
+    tempo = time.time() - star_time
+    print("%s segundos" % tempo)
     novamente = input("Deseja baixar novamente? s/n >> ")
     if novamente == "n" or novamente == "N":
         exit()
     else:
         os.system('cls')
+        star_time = time.time()
         baixar()
 
 os.system('cls')
+star_time = time.time()
 baixar()
