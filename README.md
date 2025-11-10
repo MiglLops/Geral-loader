@@ -1,5 +1,8 @@
 Requer download da biblioteca PYTUBEFIX e INSTALOADER ou execute o MAIN.PY 
-Agora é possivel criar playlists virtuais!!!
+
+~Agora é possivel criar playlists virtuais!!!~
+Agora é possivel inserir um diretorio de destino!!!
+
 
 INSTRUÇÕES DE USO:
 
