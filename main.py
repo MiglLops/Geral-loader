@@ -1,4 +1,3 @@
-local_salvo = r"D:\PyLoader"
 import instaloader, os, time
 from pytubefix import YouTube # https://www.youtube.com/watch?v=dQw4w9WgXcQ
 from pytubefix.cli import on_progress, Playlist
@@ -214,4 +213,5 @@ def baixar():
 
 os.system('cls')
 star_time = time.time()
+
 baixar()
