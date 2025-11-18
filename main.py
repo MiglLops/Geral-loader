@@ -1,9 +1,8 @@
-import instaloader, os, time
+import instaloader, os, 
 from pytubefix import YouTube # https://www.youtube.com/watch?v=dQw4w9WgXcQ
 from pytubefix.cli import on_progress, Playlist
 
 playlist = False
-
 L = instaloader.Instaloader(
     download_comments=False,
     save_metadata=False,
@@ -12,10 +11,8 @@ L = instaloader.Instaloader(
     download_video_thumbnails=False
 )
 
-
 def definir_local():
     global local_salvo2, conteudo, local
-
     with open(__file__, "r", encoding="utf-8") as f:
         conteudo = f.readlines()
         if remover == True:
@@ -25,7 +22,7 @@ def definir_local():
             with open(__file__, "w", encoding="utf-8") as f:
                 local = True
                 f.writelines(conteudo)
-            
+  
         else:
             local_salvo2 = input("Digite o local de destino dos downloads: ")
             nova_linha = f'local_salvo = r"{local_salvo2}"\n'
@@ -42,15 +39,13 @@ def local_downloads():
         else:
             print("a")
             definir_local()
-
     except:
         definir_local()
-
 
 def escolha_pytube():
     global yt, url_2, url_instagram_lista, vim_pelo_ig
     vim_pelo_ig = False
-    print("1- Video"); print("2- Audio"); print("3- Criar uma playlist virtual ")
+    print("1- Download video"); print("2- Download audio"); print("3- Criar uma playlist virtual ")
     escolha = int(input("Esolha usando os numeros: "))
     if escolha == 1:
         if playlist:
@@ -93,7 +88,7 @@ def download_na_lista():
         if vim_pelo_ig == True:
             print("1 - Download")
         else:
-            print("1- Video"); print("2- Audio")            
+            print("1- Download video"); print("2- Download audio")            
         url_2 = input("Digite sua url/escolha de download aqui >>")  
 
         if url_2 == "1":
@@ -182,13 +177,11 @@ def baixar():
         pl = Playlist(url)
         print(f"Titulo da playlist: {pl.title}")
         escolha_pytube()
-        print("Download concluido!")
 
     elif substring_ig in url:
         print("1 - Download"); print("2- Criar uma lista de url")
         escolha = int(input("Esolha usando os numeros: "))
         escolha_ig()
-        print("Download concluido!")
 
     elif substring_novo_caminho in url:
         local = False
@@ -200,18 +193,14 @@ def baixar():
         yt = YouTube(url, on_progress_callback = on_progress)
         print(f"Titulo do video: {yt.title}")
         escolha_pytube()
-        print("Download concluido!")
-    tempo = time.time() - star_time
-    print("%s segundos" % tempo)
+        
+    print("Download concluido!")
     novamente = input("Deseja baixar novamente? s/n >> ")
     if novamente == "n" or novamente == "N":
         exit()
     else:
         os.system('cls')
-        star_time = time.time()
         baixar()
 
 os.system('cls')
-star_time = time.time()
-
 baixar()
