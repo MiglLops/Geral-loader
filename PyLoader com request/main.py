@@ -25,7 +25,7 @@ def baixar():
         print(f"Titulo da playlist: {pl.title}")
         for videos in pl.videos:
             stream = videos.streams.get_highest_resolution()
-            stream.download()
+            stream.download(output_path=f"Playlist '{pl.title}'")
             print(f"{videos.title} | - ok...")
             
     elif substring_ig in url:
@@ -38,7 +38,7 @@ def baixar():
         yt = YouTube(url, on_progress_callback=on_progress)
         print(f"Titulo do video: {yt.title}")
         stream = yt.streams.get_highest_resolution()
-        stream.download()   
+        stream.download(output_path=f"YouTube videos")   
     print("\nDownload concluido")
 
 baixar()
