@@ -12,7 +12,7 @@ L = instaloader.Instaloader(
 
 
 # Pega a url do 1° item (apenas do primeiro)
-request = requests.get("https://pyloader-6bd85-default-rtdb.firebaseio.com/.json")
+request = requests.get(LINK DO FIREBASE AQUI)
 data = request.json()
 url = data[1]
 print(f"url: {url}")
@@ -40,5 +40,6 @@ def baixar():
         stream = yt.streams.get_highest_resolution()
         stream.download(output_path=f"YouTube videos")   
     print("\nDownload concluido")
+
 
 baixar()
