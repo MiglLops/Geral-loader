@@ -1,4 +1,4 @@
-import instaloader, os, time, tkinter as tk
+import instaloader, os, tkinter as tk
 from pytubefix import YouTube # https://www.youtube.com/watch?v=dQw4w9WgXcQ
 from pytubefix.cli import on_progress, Playlist
 from tkinter import *
@@ -202,16 +202,12 @@ def baixar():
         print(f"Titulo do video: {yt.title}")
         escolha_pytube()
         print("Download concluido!")
-    tempo = time.time() - star_time
-    print("%s segundos" % tempo)
     novamente = input("Deseja baixar novamente? s/n >> ")
     if novamente == "n" or novamente == "N":
         exit()
     else:
         os.system('cls')
-        star_time = time.time()
         baixar()
 
 os.system('cls')
-star_time = time.time()
 baixar()
